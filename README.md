@@ -39,16 +39,24 @@ Run the following command in Magento 2 root folder:
 
 With Marketing Automation (recommend):
 ```
+php bin/magento maintenance:enable
 composer require mageplaza/module-delete-orders mageplaza/module-smtp
+php bin/magento module:enable Mageplaza_Core Mageplaza_DeleteOrders --clear-static-content
 php bin/magento setup:upgrade
 php bin/magento setup:static-content:deploy
+php bin/magento setup:di:compile
+php bin/magento maintenance:disable
 ```
 
 Without Marketing Automation:
 ```
+php bin/magento maintenance:enable
 composer require mageplaza/module-delete-orders
+php bin/magento module:enable Mageplaza_Core Mageplaza_DeleteOrders --clear-static-content
 php bin/magento setup:upgrade
 php bin/magento setup:static-content:deploy
+php bin/magento setup:di:compile
+php bin/magento maintenance:disable
 ```
 
 
